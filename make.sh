@@ -55,5 +55,5 @@ cp $ROOT/src/libtermkey-0.22/termkey.h $ROOT/usr/include
 
 git clone https://github.com/martanne/vis.git $ROOT/src/vis --depth 1
 sed -i '1i#include <stdio.h>' $ROOT/src/vis/ui-terminal.c
-make -C $ROOT/src/vis PREFIX=$ROOT/usr/ CC=$TCC CONFIG_CURSES=0 CONFIG_LUA=0 LDFLAGS_VIS='-ltermkey -lunibilium'
-cp $ROOT/src/vis/vis $ROOT/usr/bin
+make -C $ROOT/src/vis DESTDIR=$ROOT/usr/ CC=$TCC CONFIG_CURSES=0 CONFIG_LUA=0 LDFLAGS_VIS='-ltermkey -lunibilium'
+make -C $ROOT/src/vis install DESTDIR=$ROOT/usr/
